@@ -6,6 +6,8 @@ var express = require('express')
   , mongoStore = require('connect-mongo')(express)
   , flash = require('connect-flash')
   , helpers = require('view-helpers')
+// THIS IS FOR EXPRESS LATEST VERSION 4.0 OR ABOVE
+// var session    = require('express-session');
 
 module.exports = function (app, config, passport) {
 
@@ -51,6 +53,13 @@ module.exports = function (app, config, passport) {
         collection : 'sessions'
       })
     }))
+    // THIS IS FOR EXPRESS LATEST VERSION 4.0 OR ABOVE
+    // app.use(session({
+    //   secret: settings.cookie_secret,
+    //   store: new MongoStore({
+    //     db : settings.db,
+    //   })
+    // }));
 
     // connect flash for flash messages
     app.use(flash())
