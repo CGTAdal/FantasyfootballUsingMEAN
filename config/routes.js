@@ -24,6 +24,24 @@ module.exports = function (app, passport, auth) {
   app.del('/leagues/:leagueId', auth.requiresLogin, leagues.destroy)
    
   app.param('leagueId', leagues.league)
+
+  // fantasy team routes
+  var fantasyteams = require('../app/controllers/fantasyteams')
+  app.get('/fantasyteams', fantasyteams.all)
+  app.post('/fantasyteams', auth.requiresLogin, fantasyteams.create)
+  app.get('/fantasyteams/:fantasyTeamId', fantasyteams.show)
+  app.put('/fantasyteams/:fantasyTeamId', auth.requiresLogin, fantasyteams.update)
+  app.del('/fantasyteams/:fantasyTeamId', auth.requiresLogin, fantasyteams.destroy)
+   
+  app.param('fantasyTeamId', fantasyteams.fantasyteam)
+
+  // player routes
+  var players = require('../app/controllers/players')
+  app.get('/players', players.all)
+  app.post('/players', auth.requiresLogin, players.create)
+  app.get('/players/:playerId', players.show)
+   
+  app.param('playerId', players.player)
   
   // home route
   var index = require('../app/controllers/index')

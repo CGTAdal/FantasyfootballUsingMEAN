@@ -1,0 +1,33 @@
+<div ng-controller="PlayersController">
+    <form class="form-horizontal" ng-submit="create()">
+        <div class="control-group">
+            <label class="control-label" for="name">Name</label>
+            <div class="controls">
+                <input type="text" ng-model="players.name" id="name" placeholder="Name">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="number">Number</label>
+            <div class="controls">
+                <input type="text" ng-model="players.num" id="number" placeholder="Number">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="number">Position</label>
+            <div class="controls">
+                <positions></positions>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="number">Team</label>
+            <div class="controls">
+                <nflteams></nflteams>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" class="btn">
+            </div>
+        </div>
+    </form>
+</div>
